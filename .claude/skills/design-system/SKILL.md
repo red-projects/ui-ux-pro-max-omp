@@ -56,12 +56,12 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 **Generate tokens:**
 ```bash
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/generate-tokens.cjs --config tokens.json -o tokens.css
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/generate-tokens.cjs --config tokens.json -o tokens.css
 ```
 
 **Validate usage:**
 ```bash
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/validate-tokens.cjs --dir src/
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/validate-tokens.cjs --dir src/
 ```
 
 ## References

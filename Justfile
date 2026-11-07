@@ -37,11 +37,11 @@ sync-upstream ref="main":
     python3 omp/verify.py
     python3 omp/self_audit.py
 
-# Link the 7 skills into target project's .claude/skills/ directory
+# Link the 7 skills into target project's .omp/skills/ directory
 link-project target_dir=".":
     #!/usr/bin/env bash
     set -euo pipefail
-    dest="{{target_dir}}/.claude/skills"
+    dest="{{target_dir}}/.omp/skills"
     mkdir -p "$dest"
     for skill_path in .claude/skills/*; do
         if [ -d "$skill_path" ]; then

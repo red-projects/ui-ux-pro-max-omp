@@ -45,7 +45,8 @@ LAUNCHER = re.compile(
     r"""|\$\{CLAUDE_PLUGIN_ROOT\}/\.claude/skills/ui-ux-pro-max/scripts/search\.py"""
 )
 
-RELATIVE_LINK = re.compile(r"(?<![\w./~-])((?:references|scripts)/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*)")
+RELATIVE_LINK = re.compile(r"(?<![\w./~-])((?:references|scripts|templates)/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*)")
+NODE_INVOCATION = re.compile(r"node (/home/konstantin/[^\s`]+?\.(?:cjs|mjs|js))")
 
 
 def validate_description(desc: str) -> None:
@@ -96,6 +97,7 @@ def adapt_skill(path: Path) -> bool:
     # cli/assets/skills is a portable distribution copy: absolute host paths would break installs.
     if path.parent.parent == INSTALLED_SKILLS:
         updated = canonicalize_links(updated, path.parent)
+        updated = NODE_INVOCATION.sub(r"bun \1", updated)
 
     if updated == original:
         return False

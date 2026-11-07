@@ -28,19 +28,19 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 **Inject brand context into prompts:**
 ```bash
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json
 ```
 
 **Validate an asset:**
 ```bash
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/validate-asset.cjs <asset-path>
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/validate-asset.cjs <asset-path>
 ```
 
 **Extract/compare colors:**
 ```bash
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs --palette
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs <image-path>
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs --palette
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs <image-path>
 ```
 
 ## Brand Sync Workflow
@@ -48,9 +48,9 @@ node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/script
 ```bash
 # 1. Edit docs/brand-guidelines.md (or use /brand update)
 # 2. Sync to design tokens
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs
 # 3. Verify
-node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json | head -20
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json | head -20
 ```
 
 The sync stops when it detects existing token files, `:root` custom properties
@@ -99,7 +99,7 @@ intentional, re-run with `--force`.
 
 | Template | Purpose |
 |----------|---------|
-| `templates/brand-guidelines-starter.md` | Complete starter template for new brands |
+| `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/templates/brand-guidelines-starter.md` | Complete starter template for new brands |
 
 ## Routing
 

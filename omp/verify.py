@@ -3,7 +3,7 @@
 Verification gate runner for OMP (ui-ux-pro-max).
 
 5 strict verification gates:
-- Gate 1: Frontmatter & Byte Budget (13 SKILL.md, name/desc, <=300 bytes, no CLAUDE_PLUGIN_ROOT)
+- Gate 1: Frontmatter & Byte Budget (13 SKILL.md, name/desc, <=300 bytes, no CLAUDE_PLUGIN_ROOT, no node host-path)
 - Gate 2: Negative Byte Control (301-byte string raises ValueError via validate_description)
 - Gate 3: Upstream Data & Core Integrity (git diff main -- data, scripts, src, cli/assets/scripts)
 - Gate 4: BM25 Multi-Domain Execution (5 domains, rc==0, valid JSON, count >= 1)
@@ -70,7 +70,9 @@ def run_gate1() -> bool:
         if "${CLAUDE_PLUGIN_ROOT}" in text:
             print(f"FAIL: {sf} contains ${{CLAUDE_PLUGIN_ROOT}}")
             return False
-
+        if re.search(r"\bnode\s+/home/konstantin/", text):
+            print(f"FAIL: {sf} contains node invocation with host path (Bun required)")
+            return False
         try:
             fm = parse_frontmatter(text)
         except Exception as exc:
@@ -90,7 +92,7 @@ def run_gate1() -> bool:
             print(f"FAIL: {sf} description length {desc_bytes} not in 1..{MAX_DESC_BYTES}")
             return False
 
-    print(f"PASS: All 13 skills verified (name+desc present, 0 < bytes <= {MAX_DESC_BYTES}, 0 plugin-root refs)")
+    print(f"PASS: All 13 skills verified (name+desc present, 0 < bytes <= {MAX_DESC_BYTES}, 0 plugin-root refs, 0 node host-path refs)")
     return True
 
 
