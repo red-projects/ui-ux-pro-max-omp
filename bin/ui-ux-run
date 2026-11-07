@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Determine absolute path to repo root regardless of symlinks or invocation directory
+TARGET="${BASH_SOURCE[0]}"
+while [ -h "$TARGET" ]; do
+  DIR="$(cd -P "$(dirname "$TARGET")" && pwd)"
+  TARGET="$(readlink "$TARGET")"
+  [[ $TARGET != /* ]] && TARGET="$DIR/$TARGET"
+done
+REPO_ROOT="$(cd -P "$(dirname "$TARGET")/.." && pwd)"
+
+# Find Python 3
+PYTHON_BIN="$(command -v python3 || command -v python)"
+if [[ -z "${PYTHON_BIN}" ]]; then
+  echo "Error: Python 3 not found in PATH" >&2
+  exit 1
+fi
+
+# Resolve search.py path
+SEARCH_SCRIPT="${REPO_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py"
+if [[ ! -f "${SEARCH_SCRIPT}" ]]; then
+  SEARCH_SCRIPT="${REPO_ROOT}/src/ui-ux-pro-max/scripts/search.py"
+fi
+
+if [[ ! -f "${SEARCH_SCRIPT}" ]]; then
+  echo "Error: search.py not found in ${REPO_ROOT}" >&2
+  exit 1
+fi
+
+# If invoked without args or with help flag, pass through
+if [[ "$#" -eq 0 || "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+  exec "${PYTHON_BIN}" "${SEARCH_SCRIPT}" --help
+fi
+
+# If invoked with leading 'search.py' or 'search', shift it
+if [[ "${1:-}" == "search.py" || "${1:-}" == "search" ]]; then
+  shift
+fi
+
+export PYTHONIOENCODING="utf-8"
+exec "${PYTHON_BIN}" "${SEARCH_SCRIPT}" "$@"

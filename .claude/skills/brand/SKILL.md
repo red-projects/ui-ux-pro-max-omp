@@ -1,6 +1,6 @@
 ---
 name: brand
-description: Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style guides.
+description: "Brand identity design: visual systems, color palettes, typography rules, brand voice, and design token synchronization."
 argument-hint: "[update|review|create] [args]"
 metadata:
   author: claudekit
@@ -28,19 +28,19 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 **Inject brand context into prompts:**
 ```bash
-node scripts/inject-brand-context.cjs
-node scripts/inject-brand-context.cjs --json
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json
 ```
 
 **Validate an asset:**
 ```bash
-node scripts/validate-asset.cjs <asset-path>
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/validate-asset.cjs <asset-path>
 ```
 
 **Extract/compare colors:**
 ```bash
-node scripts/extract-colors.cjs --palette
-node scripts/extract-colors.cjs <image-path>
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs --palette
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs <image-path>
 ```
 
 ## Brand Sync Workflow
@@ -48,9 +48,9 @@ node scripts/extract-colors.cjs <image-path>
 ```bash
 # 1. Edit docs/brand-guidelines.md (or use /brand update)
 # 2. Sync to design tokens
-node scripts/sync-brand-to-tokens.cjs
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs
 # 3. Verify
-node scripts/inject-brand-context.cjs --json | head -20
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json | head -20
 ```
 
 The sync stops when it detects existing token files, `:root` custom properties
@@ -69,31 +69,31 @@ intentional, re-run with `--force`.
 
 | Subcommand | Description | Reference |
 |------------|-------------|-----------|
-| `update` | Update brand identity and sync to all design systems | `references/update.md` |
+| `update` | Update brand identity and sync to all design systems | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/update.md` |
 
 ## References
 
 | Topic | File |
 |-------|------|
-| Voice Framework | `references/voice-framework.md` |
-| Visual Identity | `references/visual-identity.md` |
-| Messaging | `references/messaging-framework.md` |
-| Consistency | `references/consistency-checklist.md` |
-| Guidelines Template | `references/brand-guideline-template.md` |
-| Asset Organization | `references/asset-organization.md` |
-| Color Management | `references/color-palette-management.md` |
-| Typography | `references/typography-specifications.md` |
-| Logo Usage | `references/logo-usage-rules.md` |
-| Approval Checklist | `references/approval-checklist.md` |
+| Voice Framework | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/voice-framework.md` |
+| Visual Identity | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/visual-identity.md` |
+| Messaging | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/messaging-framework.md` |
+| Consistency | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/consistency-checklist.md` |
+| Guidelines Template | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/brand-guideline-template.md` |
+| Asset Organization | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/asset-organization.md` |
+| Color Management | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/color-palette-management.md` |
+| Typography | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/typography-specifications.md` |
+| Logo Usage | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/logo-usage-rules.md` |
+| Approval Checklist | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/references/approval-checklist.md` |
 
 ## Scripts
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/inject-brand-context.cjs` | Extract brand context for prompt injection |
-| `scripts/sync-brand-to-tokens.cjs` | Sync brand-guidelines.md → design-tokens.json/css |
-| `scripts/validate-asset.cjs` | Validate asset naming, size, format |
-| `scripts/extract-colors.cjs` | Extract and compare colors against palette |
+| `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs` | Extract brand context for prompt injection |
+| `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs` | Sync brand-guidelines.md → design-tokens.json/css |
+| `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/validate-asset.cjs` | Validate asset naming, size, format |
+| `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/extract-colors.cjs` | Extract and compare colors against palette |
 
 ## Templates
 

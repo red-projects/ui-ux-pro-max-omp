@@ -1,6 +1,6 @@
 ---
 name: ui-styling
-description: Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating responsive layouts, adding accessible components (dialogs, dropdowns, forms, tables), customizing themes and colors, implementing dark mode, generating visual designs and posters, or establishing consistent styling patterns across applications.
+description: "UI styling guide: Tailwind CSS, shadcn/ui components, CSS variables, GSAP motion, dark mode, and interactive component states."
 argument-hint: "[component or layout]"
 license: MIT
 metadata:
@@ -119,7 +119,7 @@ export default { plugins: [tailwindcss()] }
 
 **Comprehensive component catalog with usage patterns, installation, and composition examples.**
 
-See: `references/shadcn-components.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-components.md`
 
 Covers:
 - Form & input components (Button, Input, Select, Checkbox, Date Picker, Form validation)
@@ -132,7 +132,7 @@ Covers:
 
 **Theme configuration, CSS variables, dark mode implementation, and component customization.**
 
-See: `references/shadcn-theming.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-theming.md`
 
 Covers:
 - Dark mode setup with next-themes
@@ -145,7 +145,7 @@ Covers:
 
 **ARIA patterns, keyboard navigation, screen reader support, and accessible component usage.**
 
-See: `references/shadcn-accessibility.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-accessibility.md`
 
 Covers:
 - Radix UI accessibility features
@@ -158,7 +158,7 @@ Covers:
 
 **Core utility classes for layout, spacing, typography, colors, borders, and shadows.**
 
-See: `references/tailwind-utilities.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-utilities.md`
 
 Covers:
 - Layout utilities (Flexbox, Grid, positioning)
@@ -172,7 +172,7 @@ Covers:
 
 **Mobile-first breakpoints, responsive utilities, and adaptive layouts.**
 
-See: `references/tailwind-responsive.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-responsive.md`
 
 Covers:
 - Mobile-first approach
@@ -186,7 +186,7 @@ Covers:
 
 **Config file structure, custom utilities, plugins, and theme extensions.**
 
-See: `references/tailwind-customization.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-customization.md`
 
 Covers:
 - @theme directive for custom tokens
@@ -201,7 +201,7 @@ Covers:
 
 **Canvas-based design philosophy, visual communication principles, and sophisticated compositions.**
 
-See: `references/canvas-design-system.md`
+See: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/canvas-design-system.md`
 
 Covers:
 - Design philosophy approach
@@ -219,13 +219,13 @@ Covers:
 ### shadcn_add.py
 Add shadcn/ui components with dependency handling:
 ```bash
-python scripts/shadcn_add.py button card dialog
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/scripts/shadcn_add.py button card dialog
 ```
 
 ### tailwind_config_gen.py
 Generate tailwind.config.js with custom theme:
 ```bash
-python scripts/tailwind_config_gen.py --colors brand:blue --fonts display:Inter
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/scripts/tailwind_config_gen.py --colors brand:blue --fonts display:Inter
 ```
 
 The generator refuses to create or replace a config when any sibling
@@ -233,7 +233,7 @@ The generator refuses to create or replace a config when any sibling
 reported config first, then pass `--force` only when the competing output is
 intentional:
 ```bash
-python scripts/tailwind_config_gen.py --colors brand:blue --force
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/scripts/tailwind_config_gen.py --colors brand:blue --force
 ```
 
 ## Best Practices
@@ -252,21 +252,21 @@ python scripts/tailwind_config_gen.py --colors brand:blue --force
 ## Reference Navigation
 
 **Component Library**
-- `references/shadcn-components.md` - Complete component catalog
-- `references/shadcn-theming.md` - Theming and customization
-- `references/shadcn-accessibility.md` - Accessibility patterns
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-components.md` - Complete component catalog
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-theming.md` - Theming and customization
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/shadcn-accessibility.md` - Accessibility patterns
 
 **Styling System**
-- `references/tailwind-utilities.md` - Core utility classes
-- `references/tailwind-responsive.md` - Responsive design
-- `references/tailwind-customization.md` - Configuration and extensions
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-utilities.md` - Core utility classes
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-responsive.md` - Responsive design
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/tailwind-customization.md` - Configuration and extensions
 
 **Visual Design**
-- `references/canvas-design-system.md` - Design philosophy and canvas workflows
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/references/canvas-design-system.md` - Design philosophy and canvas workflows
 
 **Automation**
-- `scripts/shadcn_add.py` - Component installation
-- `scripts/tailwind_config_gen.py` - Config generation
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/scripts/shadcn_add.py` - Component installation
+- `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/ui-styling/scripts/tailwind_config_gen.py` - Config generation
 
 ## Common Patterns
 

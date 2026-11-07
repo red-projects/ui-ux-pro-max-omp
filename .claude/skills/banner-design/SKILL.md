@@ -1,6 +1,6 @@
 ---
 name: banner-design
-description: "Design banners for social media, ads, website heroes, creative assets, and print. Multiple art direction options with optional generated or supplied visuals. Actions: design, create, generate banner. Platforms: Facebook, Twitter/X, LinkedIn, YouTube, Instagram, Google Display, website hero, print. Styles: minimalist, gradient, bold typography, photo-based, illustrated, geometric, retro, glassmorphism, 3D, neon, duotone, editorial, collage."
+description: "Promotional banner and marketing creative design: visual hierarchy, contrast, CTA placement, and multi-format responsive grids."
 argument-hint: "[platform] [style] [dimensions]"
 license: MIT
 metadata:
@@ -23,7 +23,7 @@ Design banners across social, ads, web, and print formats. Generate multiple art
 
 ## Available Resources
 
-This workflow is self-contained: it requires no sibling skills or skill-relative scripts. Use `references/banner-sizes-and-styles.md` for the bundled size, safe-zone, and art-direction guidance. Browser research, image generation, and screenshot tooling are optional capabilities; when unavailable, use supplied assets, CSS-built visuals, and the runtime's standard preview or capture workflow.
+This workflow is self-contained: it requires no sibling skills or skill-relative scripts. Use `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/banner-design/references/banner-sizes-and-styles.md` for the bundled size, safe-zone, and art-direction guidance. Browser research, image generation, and screenshot tooling are optional capabilities; when unavailable, use supplied assets, CSS-built visuals, and the runtime's standard preview or capture workflow.
 
 ## Workflow
 
@@ -39,7 +39,7 @@ Collect via AskUserQuestion:
 
 ### Step 2: Research & Art Direction
 
-1. Read `references/banner-sizes-and-styles.md` for the target format, safe zone, and suitable styles.
+1. Read `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/banner-design/references/banner-sizes-and-styles.md` for the target format, safe zone, and suitable styles.
 2. If browser research is available and permitted, collect 3–5 references for composition and art-direction inspiration. Otherwise, work from the bundled reference and any examples supplied by the user.
 3. Select 2–3 complementary art directions and state how each supports the banner's purpose.
 
@@ -108,7 +108,7 @@ Iterate based on user feedback until approved.
 | Google Ads | Leaderboard | 728 × 90 | 8:1 |
 | Website | Hero | 1920 × 600-1080 | ~3:1 |
 
-Full reference: `references/banner-sizes-and-styles.md`
+Full reference: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/banner-design/references/banner-sizes-and-styles.md`
 
 ## Art Direction Styles (Top 10)
 
@@ -125,7 +125,7 @@ Full reference: `references/banner-sizes-and-styles.md`
 | Editorial | Media, luxury | Grid layouts, pull quotes |
 | 3D/Sculptural | Product, tech | Rendered objects, depth, shadows |
 
-Full 22 styles: `references/banner-sizes-and-styles.md`
+Full 22 styles: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/banner-design/references/banner-sizes-and-styles.md`
 
 ## Design Rules
 

@@ -1,6 +1,6 @@
 ---
 name: slides
-description: Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies.
+description: "HTML presentation and slide deck engineering: 16:9 layouts, Chart.js data visualization, typography scales, and slide copy logic."
 argument-hint: "[topic] [slide-count]"
 metadata:
   author: claudekit
@@ -22,7 +22,7 @@ Strategic HTML presentation design with data visualization.
 
 | Subcommand | Description | Reference |
 |------------|-------------|-----------|
-| `create` | Create strategic presentation slides | `references/create.md` |
+| `create` | Create strategic presentation slides | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/slides/references/create.md` |
 
 ## Script Paths
 
@@ -32,10 +32,10 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 | Topic | File |
 |-------|------|
-| Layout Patterns | `references/layout-patterns.md` |
-| HTML Template | `references/html-template.md` |
-| Copywriting Formulas | `references/copywriting-formulas.md` |
-| Slide Strategies | `references/slide-strategies.md` |
+| Layout Patterns | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/slides/references/layout-patterns.md` |
+| HTML Template | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/slides/references/html-template.md` |
+| Copywriting Formulas | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/slides/references/copywriting-formulas.md` |
+| Slide Strategies | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/slides/references/slide-strategies.md` |
 
 ## Routing
 

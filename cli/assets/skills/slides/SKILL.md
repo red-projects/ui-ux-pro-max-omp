@@ -1,6 +1,6 @@
 ---
 name: slides
-description: Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies.
+description: "HTML presentation and slide deck engineering: 16:9 layouts, Chart.js data visualization, typography scales, and slide copy logic."
 argument-hint: "[topic] [slide-count]"
 metadata:
   author: claudekit

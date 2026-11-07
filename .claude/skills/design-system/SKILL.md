@@ -1,6 +1,6 @@
 ---
 name: design-system
-description: Token architecture, component specifications, and slide generation. Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography scales, component specs, strategic slide creation. Use for design tokens, systematic design, brand-compliant presentations.
+description: "Generate complete design systems and tokens: 60-30-10 palettes, typography scales, spacing grids, shadows, and token validators."
 argument-hint: "[component or token]"
 license: MIT
 metadata:
@@ -24,7 +24,7 @@ Token architecture, component specifications, systematic design, slide generatio
 
 ## Token Architecture
 
-Load: `references/token-architecture.md`
+Load: `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/token-architecture.md`
 
 ### Three-Layer Structure
 
@@ -56,25 +56,25 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 **Generate tokens:**
 ```bash
-node scripts/generate-tokens.cjs --config tokens.json -o tokens.css
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/generate-tokens.cjs --config tokens.json -o tokens.css
 ```
 
 **Validate usage:**
 ```bash
-node scripts/validate-tokens.cjs --dir src/
+node /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/validate-tokens.cjs --dir src/
 ```
 
 ## References
 
 | Topic | File |
 |-------|------|
-| Token Architecture | `references/token-architecture.md` |
-| Primitive Tokens | `references/primitive-tokens.md` |
-| Semantic Tokens | `references/semantic-tokens.md` |
-| Component Tokens | `references/component-tokens.md` |
-| Component Specs | `references/component-specs.md` |
-| States & Variants | `references/states-and-variants.md` |
-| Tailwind Integration | `references/tailwind-integration.md` |
+| Token Architecture | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/token-architecture.md` |
+| Primitive Tokens | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/primitive-tokens.md` |
+| Semantic Tokens | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/semantic-tokens.md` |
+| Component Tokens | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/component-tokens.md` |
+| Component Specs | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/component-specs.md` |
+| States & Variants | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/states-and-variants.md` |
+| Tailwind Integration | `/home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/references/tailwind-integration.md` |
 
 ## Component Spec Pattern
 
@@ -126,15 +126,15 @@ Brand-compliant presentations using design tokens + Chart.js + contextual decisi
 
 ```bash
 # Basic search (auto-detect domain)
-python scripts/search-slides.py "investor pitch"
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "investor pitch"
 
 # Domain-specific search
-python scripts/search-slides.py "problem agitation" -d copy
-python scripts/search-slides.py "revenue growth" -d chart
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "problem agitation" -d copy
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "revenue growth" -d chart
 
 # Contextual search (Premium System)
-python scripts/search-slides.py "problem slide" --context --position 2 --total 9
-python scripts/search-slides.py "cta" --context --position 9 --prev-emotion frustration
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "problem slide" --context --position 2 --total 9
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "cta" --context --position 9 --prev-emotion frustration
 ```
 
 ### Decision System CSVs

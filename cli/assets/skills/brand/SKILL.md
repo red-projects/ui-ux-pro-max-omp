@@ -1,6 +1,6 @@
 ---
 name: brand
-description: Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style guides.
+description: "Brand identity design: visual systems, color palettes, typography rules, brand voice, and design token synchronization."
 argument-hint: "[update|review|create] [args]"
 metadata:
   author: claudekit
