@@ -164,14 +164,14 @@ Application Code
 
 **Brand:**
 ```bash
-node ../brand/scripts/inject-brand-context.cjs
-node ../brand/scripts/validate-asset.cjs <path>
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/validate-asset.cjs <path>
 ```
 
 **Tokens:**
 ```bash
-node ../design-system/scripts/generate-tokens.cjs -c tokens.json
-node ../design-system/scripts/validate-tokens.cjs -d src/
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/generate-tokens.cjs -c tokens.json
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/validate-tokens.cjs -d src/
 ```
 
 **Components:**

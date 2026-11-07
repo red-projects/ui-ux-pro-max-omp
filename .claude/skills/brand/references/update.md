@@ -46,7 +46,7 @@ Edit `docs/brand-guidelines.md`:
 
 Run the sync script:
 ```bash
-node scripts/sync-brand-to-tokens.cjs
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs
 ```
 
 If the script reports an existing token source, inspect the named file before
@@ -57,7 +57,7 @@ sources. Use `--force` only when the detected source is the managed
 `assets/design-tokens.*` output from an earlier sync and replacing it is
 intentional:
 ```bash
-node scripts/sync-brand-to-tokens.cjs --force
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/sync-brand-to-tokens.cjs --force
 ```
 
 This will:
@@ -69,7 +69,7 @@ This will:
 Confirm all files are updated:
 ```bash
 # Check brand context extraction
-node scripts/inject-brand-context.cjs --json | head -30
+bun /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/brand/scripts/inject-brand-context.cjs --json | head -30
 
 # Check CSS variables
 grep "primary" assets/design-tokens.css | head -5

@@ -113,10 +113,10 @@
 
 ```bash
 # Find layout for specific use
-python ../design-system/scripts/search-slides.py "metrics dashboard" -d layout
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "metrics dashboard" -d layout
 
 # Contextual recommendation
-python ../design-system/scripts/search-slides.py "traction slide" \
+python /home/konstantin/.local/share/omp-ui-ux-pro-max/.claude/skills/design-system/scripts/search-slides.py "traction slide" \
   --context --position 4 --total 10
 ```
 

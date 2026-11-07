@@ -24,6 +24,7 @@ sys.path.insert(0, str(REPO_ROOT / "omp"))
 
 from adapt import (  # noqa: E402
     MAX_DESC_BYTES,
+    reference_files,
     skill_files,
     validate_description,
 )
@@ -65,6 +66,11 @@ def run_gate1() -> bool:
         print(f"FAIL: Expected 13 skill files, found {len(files)}")
         return False
 
+    refs = reference_files()
+    if not refs:
+        print("FAIL: No reference files found under .claude/skills")
+        return False
+
     for sf in files:
         text = sf.read_text(encoding="utf-8")
         if "${CLAUDE_PLUGIN_ROOT}" in text:
@@ -92,7 +98,16 @@ def run_gate1() -> bool:
             print(f"FAIL: {sf} description length {desc_bytes} not in 1..{MAX_DESC_BYTES}")
             return False
 
-    print(f"PASS: All 13 skills verified (name+desc present, 0 < bytes <= {MAX_DESC_BYTES}, 0 plugin-root refs, 0 node host-path refs)")
+    for rf in refs:
+        text = rf.read_text(encoding="utf-8")
+        if "${CLAUDE_PLUGIN_ROOT}" in text:
+            print(f"FAIL: {rf} contains ${{CLAUDE_PLUGIN_ROOT}}")
+            return False
+        if re.search(r"\bnode\s+/home/konstantin/", text):
+            print(f"FAIL: {rf} contains node invocation with host path (Bun required)")
+            return False
+
+    print(f"PASS: All 13 skills and {len(refs)} references verified (name+desc present, 0 < bytes <= {MAX_DESC_BYTES}, 0 plugin-root refs, 0 node host-path refs)")
     return True
 
 

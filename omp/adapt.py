@@ -4,9 +4,12 @@ Deterministic skill adapter for OMP (ui-ux-pro-max).
 
 - Rewrites every SKILL.md frontmatter description to a fixed, <=300-byte UTF-8 string (Pillar 15).
 - Rewrites the `${CLAUDE_PLUGIN_ROOT}/.../search.py` launcher forms to the canonical `omp-ui-ux-run`.
-- Rewrites relative `references/x.md` and sibling `scripts/...` links of the installed
-  `.claude/skills` tree to absolute canonical paths (CWD-independent).
-- Never touches `.csv` data or `.py` scripts: only SKILL.md files are written.
+- Rewrites relative `references/x.md`, `scripts/...` and `../<skill>/scripts/...` links of the
+  installed `.claude/skills` tree to absolute canonical paths (CWD-independent), in both
+  `SKILL.md` and every `<skill>/references/*.md`.
+- Replaces `${CLAUDE_PLUGIN_ROOT}` with the canonical repo root and `node <host-path>` with
+  `bun <host-path>` in reference markdown (no Node runtime in this install).
+- Never touches `.csv` data or `.py` scripts: only markdown is written.
 - Fully idempotent: writes only when the content actually changes.
 """
 
@@ -45,7 +48,10 @@ LAUNCHER = re.compile(
     r"""|\$\{CLAUDE_PLUGIN_ROOT\}/\.claude/skills/ui-ux-pro-max/scripts/search\.py"""
 )
 
-RELATIVE_LINK = re.compile(r"(?<![\w./~-])((?:references|scripts|templates)/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*)")
+RELATIVE_LINK = re.compile(
+    r"(?<![\w./~-])(?:\.\./([A-Za-z0-9_-]+)/)?"
+    r"((?:references|scripts|templates)/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*)"
+)
 NODE_INVOCATION = re.compile(r"node (/home/konstantin/[^\s`]+?\.(?:cjs|mjs|js))")
 
 
@@ -77,9 +83,10 @@ def canonicalize_links(text: str, skill_dir: Path) -> str:
     """Resolve relative reference/script links against the skill dir, but only when the target exists."""
 
     def repl(match: re.Match[str]) -> str:
-        rel = match.group(1)
-        target = skill_dir / rel
-        return str(target) if target.is_file() else rel
+        sibling, rel = match.groups()
+        base = skill_dir.parent / sibling if sibling else skill_dir
+        target = base / rel
+        return str(target) if target.is_file() else match.group(0)
 
     return RELATIVE_LINK.sub(repl, text)
 
@@ -117,10 +124,29 @@ def skill_files() -> list[Path]:
     return sorted(found)
 
 
+def reference_files() -> list[Path]:
+    return sorted(INSTALLED_SKILLS.glob("*/references/*.md"))
+
+
+def adapt_reference(path: Path) -> bool:
+    original = path.read_text(encoding="utf-8")
+    skill_dir = next(p for p in path.parents if p.parent == INSTALLED_SKILLS)
+    updated = canonicalize_links(original, skill_dir)
+    updated = updated.replace("${CLAUDE_PLUGIN_ROOT}", str(REPO_ROOT))
+    updated = NODE_INVOCATION.sub(r"bun \1", updated)
+
+    if updated == original:
+        return False
+    path.write_text(updated, encoding="utf-8")
+    return True
+
+
 def main() -> int:
     files = skill_files()
     changed = sum(1 for path in files if adapt_skill(path))
-    print(f"adapt: {len(files)}/13 skills, {changed} modified")
+    refs = reference_files()
+    changed += sum(1 for path in refs if adapt_reference(path))
+    print(f"adapt: {len(files)}/13 skills, {len(refs)} references, {changed} modified")
     return 0 if len(files) == 13 else 1
 
 
