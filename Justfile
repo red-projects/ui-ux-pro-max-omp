@@ -26,16 +26,9 @@ test:
 self-audit:
     python3 omp/self_audit.py
 
-# Fetch upstream commits and verify suite
+# Safely fetch upstream, merge into current branch, adapt and verify
 sync-upstream ref="main":
-    #!/usr/bin/env bash
-    set -euo pipefail
-    git fetch upstream
-    echo "Upstream fetched. Comparing with upstream/{{ref}}:"
-    git log --oneline -n 5 "upstream/{{ref}}" || true
-    python3 omp/adapt.py
-    python3 omp/verify.py
-    python3 omp/self_audit.py
+    bash omp/sync-upstream.sh "{{ref}}"
 
 # Link the 7 skills into target project's .omp/skills/ directory
 link-project target_dir=".":
